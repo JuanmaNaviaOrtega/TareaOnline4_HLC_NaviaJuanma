@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <!-- TextView de la tasa actual (ahora arriba) -->
+    <TextView
+        android:id="@+id/tvCurrentRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Tasa actual: 1 EUR = 1.10 USD"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Campo de entrada -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEurosyDolares"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Euros€/Dólares$"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="32dp"/>
+
+    <!-- Resultado -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etResultado"
+        android:layout_width="300dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_edittext"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:hint="Resultado"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/etEurosyDolares"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- RadioGroup -->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/etResultado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioEurosaDolares"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Euros a Dólares"
+            android:textAlignment="center"/>
+
+        <RadioButton
+            android:id="@+id/radioDolaresaEuros"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dólares a Euros"
+            android:textAlignment="center"/>
+    </RadioGroup>
+
+    <!-- Imagen añadida en la parte inferior -->
+    <ImageView
+        android:id="@+id/ivCurrency"
+        android:layout_width="400dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="Icono de conversión de divisas"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_conversor"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
